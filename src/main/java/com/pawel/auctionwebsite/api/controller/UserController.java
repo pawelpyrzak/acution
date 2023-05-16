@@ -31,13 +31,13 @@ public class UserController {
        return ResponseEntity.ok(dtoMapper.mapToUserResponse(user));
     }
 
-    @PatchMapping("/{uuid}")
-    public ResponseEntity<UserResponse> updateUser(
-            @PathVariable String uuid,@RequestParam String nickname,
-            @RequestParam String password,@RequestParam Address address){
-        userService.updateUser(uuid, nickname, password, address);
-
-
-    }
+//    @PatchMapping("/{uuid}")
+//    public ResponseEntity<UserResponse> updateUser(
+//            @PathVariable String uuid,@RequestParam String nickname,
+//            @RequestParam String password,@RequestParam Address address){
+//        userService.updateUser(uuid, nickname, password, address);
+//
+//
+//    }
 
 }

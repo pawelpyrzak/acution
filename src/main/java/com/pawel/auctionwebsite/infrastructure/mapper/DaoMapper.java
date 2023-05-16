@@ -10,19 +10,21 @@ import org.mapstruct.ReportingPolicy;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface DaoMapper {
-    @Mapping(source = "address.street", target = "street")
-    @Mapping(source = "address.city", target = "city")
-    @Mapping(source = "address.voivodeship", target = "voivodeship")
-    @Mapping(source = "address.postcode", target = "postcode")
-    @Mapping(source = "address.houseNumber", target = "houseNumber")
-
-
-    UserDao toUserDao(User user);
-    @Mapping(source = "street", target = "address.street")
-    @Mapping(source = "city", target = "address.city")
-    @Mapping(source = "voivodeship", target = "address.voivodeship")
-    @Mapping(source = "postcode", target = "address.postcode")
-    @Mapping(source = "houseNumber", target = "address.houseNumber")
-
+    @Mapping(source = "uuid",target = "uuid")
+    @Mapping(source = "nickname",target = "nickname")
+    @Mapping(source = "password",target = "password")
+    @Mapping(source = "address",target = "address")
+    @Mapping(source = "type",target = "type")
+    @Mapping(source = "status",target = "status")
     User toUser(UserDao userDao);
+
+    @Mapping(source = "uuid",target = "uuid")
+    @Mapping(source = "nickname",target = "nickname")
+    @Mapping(source = "password",target = "password")
+    @Mapping(source = "address",target = "address")
+    @Mapping(source = "type",target = "type")
+    @Mapping(source = "status",target = "status")
+    @Mapping(target = "createdDate", ignore = true)
+    @Mapping(target = "modificationDate", ignore = true)
+    UserDao toUserDao(User user);
 }
