@@ -4,6 +4,8 @@ import com.pawel.auctionwebsite.domain.model.user.*;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -18,11 +20,30 @@ public class UserService {
         return userRepository.save(new User(UUID.randomUUID().toString(),nickname, password, address, type, status));
     }
 
-//    public User updateUser(String uuid, String nickname, String password, Address address) {
-//        User byUuid = userRepository.findByUuid(uuid);
-//
-//        //sprawdz czy nickname jest nullem, jezeli nie jest nullem to uzyj go w konstruktorze do toSave, jezeli jest nullem uzyj
-//        //zmiennej z byUuid- tak samo dla pozostalych(nickname, password, address)
-//        User toSave = new User()
-//    }
+    public User updateUser(String uuid, String nickname, String password, Address address) {
+        User userFromDb = userRepository.findByUuid(uuid);
+        String newNickname;
+        String newPassword;
+        Address newAddress;
+        if (nickname!=null){
+            newNickname=nickname;
+        }else{
+            newNickname=userFromDb.getNickname();
+        }
+        if(password!=null){
+            newPassword= password;
+        }else {
+            newPassword= userFromDb.getPassword();
+        }
+        if (address!=null){
+            newAddress= address;
+        }else{
+            newAddress=userFromDb.getAddress();
+        }
+        return userRepository.update(new User(userFromDb.getUuid(),newNickname, newPassword,
+                newAddress, userFromDb.getType(), userFromDb.getStatus()));
+    }
+    public Page<User> findAll(Pageable pageable){
+        return userRepository.findAll(pageable);
+    }
 }
