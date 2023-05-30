@@ -1,6 +1,5 @@
 package com.pawel.auctionwebsite.infrastructure.repository;
 
-import com.pawel.auctionwebsite.domain.model.user.User;
 import com.pawel.auctionwebsite.infrastructure.entity.UserDao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

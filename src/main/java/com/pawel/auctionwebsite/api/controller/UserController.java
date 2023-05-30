@@ -8,6 +8,7 @@ import com.pawel.auctionwebsite.domain.model.user.User;
 import com.pawel.auctionwebsite.domain.service.UserService;
 import com.pawel.auctionwebsite.infrastructure.mapper.DtoMapper;
 import com.pawel.auctionwebsite.infrastructure.repository.UserRepositoryJpa;
+import com.sun.xml.bind.v2.TODO;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -49,4 +50,5 @@ public class UserController {
         return ResponseEntity.ok(userService.findAll(pageable)
                 .map(dtoMapper::mapToUserResponse));
     }
+
 }
