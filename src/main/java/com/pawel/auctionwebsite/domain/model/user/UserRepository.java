@@ -9,4 +9,5 @@ public interface UserRepository {
     User findByUuid(String uuid);
     Page<User> findAll(Pageable pageable);
 
+
 }

@@ -1,12 +1,9 @@
 package com.pawel.auctionwebsite.domain.model.user;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-@AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Getter
 @Setter
 public class User {
