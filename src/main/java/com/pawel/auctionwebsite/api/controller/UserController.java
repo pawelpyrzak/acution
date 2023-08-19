@@ -3,12 +3,10 @@ package com.pawel.auctionwebsite.api.controller;
 import com.pawel.auctionwebsite.api.dto.request.UpdateUserRequest;
 import com.pawel.auctionwebsite.api.dto.request.UserRequest;
 import com.pawel.auctionwebsite.api.dto.response.UserResponse;
-import com.pawel.auctionwebsite.domain.model.user.Address;
-import com.pawel.auctionwebsite.domain.model.user.User;
 import com.pawel.auctionwebsite.domain.service.UserService;
+import com.pawel.auctionwebsite.infrastructure.entity.AppUser;
 import com.pawel.auctionwebsite.infrastructure.mapper.DtoMapper;
-import com.pawel.auctionwebsite.infrastructure.repository.UserRepositoryJpa;
-import com.sun.xml.bind.v2.TODO;
+import com.pawel.auctionwebsite.infrastructure.repository.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,18 +22,18 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     DtoMapper dtoMapper;
     UserService userService;
-    private final UserRepositoryJpa userRepositoryJpa;
+    private final UserRepository userRepositoryJpa;
 
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
-        User user = userService.createUser(
+        AppUser appUser = userService.createUser(
                 userRequest.getNickname(),
                 userRequest.getPassword(),
                 userRequest.getAddress(),
                 userRequest.getType(),
                 userRequest.getStatus());
 
-        return ResponseEntity.ok(dtoMapper.mapToUserResponse(user));
+        return ResponseEntity.ok(dtoMapper.mapToUserResponse(appUser));
     }
 
     @PatchMapping("/{uuid}")

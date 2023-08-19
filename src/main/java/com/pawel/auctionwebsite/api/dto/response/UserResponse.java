@@ -1,8 +1,8 @@
 package com.pawel.auctionwebsite.api.dto.response;
 
-import com.pawel.auctionwebsite.domain.model.user.Address;
-import com.pawel.auctionwebsite.domain.model.user.Status;
-import com.pawel.auctionwebsite.domain.model.user.Type;
+import com.pawel.auctionwebsite.infrastructure.model.Address;
+import com.pawel.auctionwebsite.infrastructure.model.Status;
+import com.pawel.auctionwebsite.infrastructure.model.Type;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;

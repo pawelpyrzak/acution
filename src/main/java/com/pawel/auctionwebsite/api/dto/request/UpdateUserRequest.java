@@ -1,6 +1,6 @@
 package com.pawel.auctionwebsite.api.dto.request;
 
-import com.pawel.auctionwebsite.domain.model.user.Address;
+import com.pawel.auctionwebsite.infrastructure.model.Address;
 import lombok.Getter;
 
 @Getter

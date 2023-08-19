@@ -1,10 +1,9 @@
 package com.pawel.auctionwebsite.api.dto.request;
 
-import com.pawel.auctionwebsite.domain.model.user.Address;
-import com.pawel.auctionwebsite.domain.model.user.Status;
-import com.pawel.auctionwebsite.domain.model.user.Type;
+import com.pawel.auctionwebsite.infrastructure.model.Address;
+import com.pawel.auctionwebsite.infrastructure.model.Status;
+import com.pawel.auctionwebsite.infrastructure.model.Type;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public class UserRequest {
